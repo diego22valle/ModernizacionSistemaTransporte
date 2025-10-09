@@ -12,8 +12,11 @@ public class Teleferico implements SistemaTarifario{
 
     @Override
     public double calcularTarifa(int distancia) {
-    return 1000 + (distancia * 500);    
-    }
+        if(distancia < 0){
+        throw new IllegalArgumentException("La distancia no puede ser negativa");
+        }
+        return 1000 + (distancia * 500);    
+        }
 
     @Override
     public String mostrarRuta() {
